@@ -1,7 +1,7 @@
 \input{header.tex}
 
 \begin{document}
-\title{Geometry I - Summary}
+\title{Geometry/Topology I - Summary}
 \author{Yannis B\"{a}hni}
 \address[Yannis B\"{a}hni]{University of Zurich, R\"{a}mistrasse 71, 8006 Zurich}
 \email[Yannis B\"{a}hni]{\href{mailto:yannis.baehni@uzh.ch}{yannis.baehni@uzh.ch}}
@@ -67,6 +67,21 @@
 
 \vspace{1mm}
 
+\begin{definition}
+	A topological space $M$ is said to be \emph{locally Euclidean of dimension $n$} if every point of $M$ has a neighbourhood in $M$ that is homeomorphic to an open subset of $\mathbb{R}^n$.
+\end{definition}
+
+\vspace{1mm}
+
+\begin{definition}
+	An \emph{$n$-dimensional topological manifold} is a second countable Hausdorff space that is locally Euclidean of dimension $n$.
+\end{definition}
+
+\vspace{1mm}
+
+\begin{definition}
+	An \emph{$n$-dimensional topological manifold with boundary} is a second countable Hausdorff space in which every point has a neighbourhood homeomorphic either to an open subset of $\mathbb{R}^n$, or to an open subset of $\mathbb{H}^n := \cbr[0]{(x_1,\dots,x_n)\in \mathbb{R}^n : x_n \geq 0}$, considering $\mathbb{H}^n$ as a topological space with its Euclidean topolog..
+\end{definition}
 
 \section{Geometry}
 \begin{definition}
@@ -115,12 +130,36 @@
 
 \vspace{1mm}
 
+\begin{definition}
+	Let $M \subseteq \mathbb{R}^3$ be a smooth surface, let $x: U \to M$ be a coordinate patch and let $S \subseteq x(U)$ be a set. The \emph{area} of $S$ is defined to be
+
+	\begin{equation}
+		\Area(S) := \int_{x^{-1}(S)} \sqrt{\det(g_{ij})} \d s \d t
+	\end{equation}
+\end{definition}
+
+\vspace{1mm}
+
+Let $x: U \to \mathbb{R}^3$ be a coordinate patch. The \emph{Gauss map} in a point $p = x(s,t)$ is given by 
+
+\begin{equation}
+	N(p) := \frac{\pd{x}{s} \times \pd{x}{t}}{\norm[0]{\pd{x}{s} \times \pd{x}{t}}} 
+\end{equation}
+
+and we define
+
+\begin{equation}
+	l_{11} := \langle N(p), \pd[2]{x}{s} \rangle \qquad l_{12} := l_{21} := \langle N(p), \frac{\partial^2 x}{\partial s\partial t}\rangle \qquad 	l_{22} := \langle N(p), \pd[2]{x}{t} \rangle 
+\end{equation}
+
+\vspace{1mm}
+
 \begin{lemma}
 	Let $M \subseteq \mathbb{R}^3$ be a smooth surface and let $x: U \to M$ be a coordinate patch. For all $i,j = 1,2$, we have 
 
 	\begin{equation}
 		\begin{pmatrix}
-			\Gamma^1_{ij}\\
+			\Gamma^1_{ij}\\[3pt]
 			\Gamma^2_{ij}
 		\end{pmatrix}
 		= \frac{1}{2}\begin{pmatrix}
