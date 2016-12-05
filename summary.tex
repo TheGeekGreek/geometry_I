@@ -10,7 +10,8 @@
 \thispagestyle{fancy}
 
 %\tableofcontents
-\tikzset{external/force remake}
+%\tikzset{external/force remake}
+
 \originalsectionstyle
 
 \section{Topology}
@@ -178,9 +179,6 @@
 	\caption{Frenet frame of a strongly regular curve $c: \intoo{a,b} \to \mathbb{R}^3$ at some $t \in \intoo{a,b}$.}
 \end{figure}
 
-
-\vspace{1mm}
-
 \begin{definition}
 	A regular curve $c: \intoo{a,b} \to \mathbb{R}^3$ is \emph{strongly regular} if one of the following equivalent conditions hold for all $t \in \intoo{a,b}$:
 
@@ -247,6 +245,17 @@
 
 \vspace{1mm}
 
+\begin{lemma}
+	Let $M \subseteq \mathbb{R}^3$ be a smooth surface, let $x: U \to M$ be a coordinate patch, and let $c: \intoo{a,b} \to x(U)$ be a smooth curve. Then the length of $c$ is given by 
+
+	\begin{equation}
+		\Length(c) = \int_{a}^b \sqrt{(c_1'(t))^2g_{11}(\overline{c}(t)) + 2c_1'(t)c_2'(t)g_{12}(\overline{c}(t)) + (c'_2(t))^2g_{22}(\overline{c}(t)))}\d t
+	\end{equation}
+\end{lemma}
+
+\vspace{1mm}
+
+For example, if $c(t) = x(t,bt^2/2)$, then $\overline{c}(t) = (t,bt^2/2)$ and thus $c_1(t) = t$ and $c_2(t) = bt^2/2$.\\
 Let $x: U \to \mathbb{R}^3$ be a coordinate patch. The \emph{Gauss map} in a point $p = x(s,t)$ is given by 
 
 \begin{equation}
@@ -287,4 +296,16 @@ The matrix representation for the \emph{Weingarten map} $L: T_pM \to T_pM$ is gi
 \begin{equation}
 	(L_{ij}) = (g_{ij})^{-1}(l_{ij})^t
 \end{equation}
+
+\vspace{1mm}
+
+\begin{definition}
+	Let $M \subseteq \mathbb{R}^3$ be a smooth surface. We define two functions $K,H: M \to \mathbb{R}$ as follows. For each point $p \in M$ let $L$ be the Weingarten map of $M$ at p, and define
+
+	\begin{equation}
+		K(p) := \det L = \frac{\det(l_{ij})}{\det(g_{ij})}	\qquad \text{and} \qquad H(p) := \frac{1}{2}\tr L = \frac{1}{2}\frac{g_{11}l_{22} - 2 g_{12}l_{12} + g_{22}l_{11}}{\det(g_{ij})}
+	\end{equation}
+
+	The number $K(p)$ is called the \emph{Gaussian curvature} at $p$, and the quantity $H(p)$ is called the \emph{mean curvature} at $p$.
+\end{definition}
 \end{document}
